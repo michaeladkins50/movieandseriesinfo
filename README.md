@@ -10,6 +10,13 @@ Getting Started
     3. In the .env file put "API_KEY='Your Key'" -- replace 'Your Key' with the key you obtain from OMBd API.
     4. If you plan on uploading to your own repository the code exist to hide the Key from Github. Always protect your Key. It uses the          dotenv Gem to do this.
     5. once everything is set up...from your console type bin/run to execute the program. 
-  
+ 
+ Authors
+  Michael Adkins - Initial work - MichaelAdkins50
+  See also the list of contributors who participated in this project.
+ 
+  License
+    This project is licensed under the MIT License - see the LICENSE.md file for details
+   
 
 # movieandseriesinfo
