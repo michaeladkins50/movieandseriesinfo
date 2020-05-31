@@ -17,5 +17,4 @@ class MovieSeries
     def self.all
         @@all
     end
-
 end

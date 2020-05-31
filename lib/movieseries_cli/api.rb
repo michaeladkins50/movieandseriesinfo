@@ -21,8 +21,5 @@ class Api
         actors = data["Actors"]
         MovieSeries.new(title, year, plot, released, writer, genre, director, actors)
         end
-    end
-
-    
-    
+    end    
 end

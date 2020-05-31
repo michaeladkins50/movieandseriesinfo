@@ -6,10 +6,7 @@ class Cli
 
         synopsis
         
-        main
-    
-        
-        
+        main        
     end
     
     def main
@@ -29,15 +26,19 @@ class Cli
             when 1
                 puts ""
                 puts "Directed by: #{p.director}"
+                sleep(1)
             when 2
                 puts ""
                 puts "Written by: #{p.writer}"
+                sleep(1)
             when 3
                 puts ""
                 puts "Genre: #{p.genre}"
+                sleep (1)
             when 4
                 puts ""
                 puts "Actors: #{p.actors}"
+                sleep(1)
             when 5
                 MovieSeries.all.clear
                 Cli.new.run            
@@ -47,27 +48,32 @@ class Cli
         end
         main
     end
-
-        def exit_message
-            puts "Thank You for visiting Movie And Series Info"
-            puts "Please come again."
-            exit
-        end
-
-        def welcome
-            puts "Welcome to Movie and Series Info!"
+    
+    def welcome
+        puts "Welcome to Movie and Series Info!"
         puts "Please enter a Movie Title or Television Series Title to get started:"
-     end
-
-    def synopsis
-        show = gets.chomp 
-        Api.get_info(show)
     end
-
+    
     def self.error_message
         puts "We seem to have encountered a problem."
         puts "Please check spelling or try again."
         Cli.new.run
+    end
+    
+    def exit_message
+        puts "Thank You for visiting Movie And Series Info"
+        puts "Please come again."
+        exit
+    end
+    
+    def print_error
+        puts "Invalid selection, please try again."
+        sleep(1)
+    end
+
+    def synopsis
+        show = gets.chomp 
+        Api.get_info(show)
     end
 
     def show_selection_info
@@ -80,6 +86,7 @@ class Cli
     end
 
     def options
+        sleep(1)
         puts "Learn more about this movie."
         puts "1. Director"
         puts "2. Writer"
@@ -103,11 +110,4 @@ class Cli
         end
         select
     end
-
-    def print_error
-        puts "Invalid selection, please try again."
-        sleep(1)
-    end
-
-
 end
