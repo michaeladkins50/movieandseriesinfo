@@ -19,7 +19,8 @@ class Api
         genre = data["Genre"]
         director = data["Director"]
         actors = data["Actors"]
-        MovieSeries.new(title, year, plot, released, writer, genre, director, actors)
+        @m = MovieSeries.new(title, year, plot, released, writer, genre, director, actors)
         end
+        @m
     end    
 end

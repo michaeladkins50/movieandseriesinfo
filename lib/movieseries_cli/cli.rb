@@ -21,8 +21,8 @@ class Cli
     end
 
     def second_options(select)
-        MovieSeries.all.each do |p|
-            case select
+        p = @movie
+            case var = select
             when 1
                 puts ""
                 puts "Directed by: #{p.director}"
@@ -40,13 +40,14 @@ class Cli
                 puts "Actors: #{p.actors}"
                 sleep(1)
             when 5
-                MovieSeries.all.clear
-                Cli.new.run            
+                @movie = nil
+                run       
             when 6
                 exit_message
             end
-        end
-        main
+    
+        main unless var == 6 || var == 5
+
     end
     
     def welcome
@@ -57,13 +58,12 @@ class Cli
     def self.error_message
         puts "We seem to have encountered a problem."
         puts "Please check spelling or try again."
-        Cli.new.run
+        run
     end
     
     def exit_message
         puts "Thank You for visiting Movie And Series Info"
         puts "Please come again."
-        exit
     end
     
     def print_error
@@ -73,16 +73,16 @@ class Cli
 
     def synopsis
         show = gets.chomp 
-        Api.get_info(show)
+           @movie = MovieSeries.find_or_create_by(show)
     end
 
     def show_selection_info
-        MovieSeries.all.each do|p|
+        p = @movie
             puts ""
             puts "#{p.title} - #{p.year}"
             puts "#{p.plot}"
             puts ""
-        end
+
     end
 
     def options
